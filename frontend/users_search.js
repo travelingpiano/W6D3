@@ -6,14 +6,20 @@ class UserSearch {
     this.handleInput();
   }
   searchUsers(queryVal,success){
+    console.log(queryVal);
     $.ajax({
       method: "GET",
       url: "/users/search",
       dataType: "json",
-      data: queryVal
-    }).then((users)=>{
+      data: {queryVal}
+    }).then(users=>{
+      this.renderResults();
       console.log(users);
     }).fail(()=>{console.log('hi');});
+  }
+
+  renderResults(){
+
   }
 
   handleInput(){
